@@ -1,1 +1,1 @@
-# This is the web programming codes. 
+# This is CS_410 Web programing class codes.
