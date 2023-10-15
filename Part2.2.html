@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    function calc() {
+        var salary;
+        var hours = parseFloat(document.getElementById("hours").value); // Parse input to float
+        var emptype = parseInt(document.getElementById("emptype").selectedIndex); // Parse index to integer
+        var hourlyRate;
+
+        if (emptype === 0) {
+            hourlyRate = 35;
+        } else if (emptype === 1) {
+            hourlyRate = 50;
+        } else if (emptype === 2) {
+            hourlyRate = 65;
+        }
+
+        var regularPay = Math.min(hours, 40) * hourlyRate; // Pay for regular hours (up to 40 hours)
+        var overtimeHours = Math.max(hours - 40, 0); // Extra hours worked beyond 40
+        var overtimePay = hourlyRate * 1.5 * overtimeHours; // Overtime pay for extra hours
+
+        salary = regularPay + overtimePay;
+        document.getElementById("salary").innerHTML = "Salary of the Employee : $" + salary.toFixed(2);
+    }
+</script>
+</head>
+<body>
+
+<form>
+
+Enter the number of hours worked
+<input type="text" id="hours"><br>
+
+Select the type Employee
+<select id="emptype">
+<option value="0">Tester</option> <!-- Changed values to start from 0 -->
+<option value="1">Developer</option>
+<option value="2">Manager</option>
+</select>
+<br><br>
+
+<input type="button" onclick="calc()" value="Calculate Salary">
+
+</form>
+
+<p id="salary"></p>
+
+</body>
+</html>
+
+
+
+
+
+

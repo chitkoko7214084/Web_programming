@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function calc() {
+var salary;
+var hours = document.getElementById("hours").value;
+var emptype = document.getElementById("emptype").selectedIndex;
+if (emptype == "0")
+salary = 35 * hours;
+else if (emptype == "1")
+salary = 50 * hours;
+else if (emptype == "2")
+salary = 65 * hours;
+document.getElementById("salary").innerHTML = "Salary of the Employee : $" + salary.toFixed(2);
+}
+</script>
+</head>
+<body>
+
+<form>
+
+Enter the number of hours worked
+<input type="text" id="hours"><br>
+
+Select the type Employee
+<select id="emptype">
+<option value="1">Tester</option>
+<option value="2">Developer</option>
+<option value="3">Manager</option>
+</select>
+<br><br>
+
+<input type="button" onclick="calc()"
+value="Calculate Salary">
+
+</form>
+
+<p id="salary"></p>
+
+</body>
+</html>

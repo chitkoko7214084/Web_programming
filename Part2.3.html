@@ -1,0 +1,35 @@
+<html>
+<body>
+<!--Inputs-->
+Price of the Car: <input type="text" id="price"/><br>
+Down Payment: <input type="text" id="payment"/><br>
+Annual Percentage Rate: <input type="text" id="rate"/><br>
+Number of Years: <input type="text" id="years"/><br>
+
+<!--Submit button-->
+<input type="button" value="Submit" onclick="calculatePayment()"/><br><br><br>
+
+<!--Output-->
+<label id="monthly">Monthly Payment: </label><br>
+<script>
+//function to calculate Rent
+function calculatePayment()
+{
+//getting input values
+var price=document.getElementById("price").value //Price of the Car
+var payment=document.getElementById("payment").value //Down Payment
+var rate=document.getElementById("rate").value //Annual Percentage Rate
+var years=document.getElementById("years").value //Number of Years
+
+//calculating monthly payment
+i = rate / 1200
+n = years * 12
+monthly = ((price - payment) * i* Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1);
+
+
+//setting output values in labels
+document.getElementById("monthly").innerHTML="Monthly Payment: "+monthly.toFixed(2)
+}
+</script>
+</body>
+</html>
